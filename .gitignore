@@ -4,3 +4,4 @@ log/
 worker/deps/
 worker/libs/
 worker/spike/
+tags

@@ -1,0 +1,12 @@
+{application, spike_worker,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { spike_worker_app, []}},
+  {env, []}
+ ]}.

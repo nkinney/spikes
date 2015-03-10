@@ -2,7 +2,6 @@ deps
 log/
 .eunit/
 worker/deps/
-worker/libs/
 worker/spike/
 worker/apps/spike_worker/deps
 worker/apps/spike_worker/ebin

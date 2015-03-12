@@ -1,4 +1,6 @@
-deps
+.rebar/
+ebin/
+deps/
 log/
 .eunit/
 worker/deps/
@@ -6,4 +8,4 @@ worker/spike/
 worker/apps/spike_worker/deps
 worker/apps/spike_worker/ebin
 tags
-
+*.dump

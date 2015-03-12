@@ -19,12 +19,12 @@ init([DomainModule]) ->
     amqp_channel:subscribe(Channel, #'basic.consume'{queue = Queue, no_ack = true}, self()),
     {ok, #state{domain_module=DomainModule}}.
 
-handle_call(Msg, _From, State) ->
-    Module = State#state.domain_module,
-    Module:handle_command_msg(Msg),
+handle_call(Msg, From, State) ->
+    lager:info("unexpected handle_call(~p, ~p, ~p) -> {reply, ok, ~p}",[Msg,From,State,State]),
     {reply, ok, State}.
 
-handle_cast(_Msg, State) ->
+handle_cast(Msg, State) ->
+    lager:info("unexpected handle_cast(~p, ~p) -> {noreply, ~p}",[Msg,State,State]),
     {noreply, State}.
 
 handle_info(#'basic.consume_ok'{}, State) ->
@@ -44,7 +44,7 @@ terminate(Reason, State) ->
     ok.
 
 code_change(OldVsn, State, Extra) ->
-    lager:warning("unexpected code_change(~p, ~p, ~p) -> {ok, ~p}",[OldVsn,State,Extra,State]),
+    lager:info("unexpected code_change(~p, ~p, ~p) -> {ok, ~p}",[OldVsn,State,Extra,State]),
     {ok, State}.
 
 create_queue(Host, Queue) ->

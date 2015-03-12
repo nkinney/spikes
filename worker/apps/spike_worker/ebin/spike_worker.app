@@ -1,9 +1,0 @@
-{application,spike_worker,
-             [{description,[]},
-              {vsn,"1"},
-              {registered,[]},
-              {applications,[kernel,stdlib]},
-              {mod,{spike_worker_app,[]}},
-              {env,[]},
-              {modules,[foo,simple_worker,spike_worker_app,
-                        spike_worker_sup]}]}.
